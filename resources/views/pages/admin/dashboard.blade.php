@@ -165,7 +165,7 @@
     </div>
 
     <!-- Content Row -->
-    <div class="row">
+    {{-- <div class="row">
 
       <!-- Content Column -->
       <div class="col-lg-6 mb-4">
@@ -281,7 +281,7 @@
         </div>
 
       </div>
-    </div>
+    </div> --}}
 
   </div>
   <!-- /.container-fluid -->
