@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::namespace('Admin')->group(function () {
+	// Controllers Within The "App\Http\Controllers\Admin" Namespace
+	Route::get('/admin', [
+		'as' => 'admin.dashboard',
+		'uses' => 'DashboardController@admin'
+	]);
+});
+
