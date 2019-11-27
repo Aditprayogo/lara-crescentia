@@ -11,6 +11,8 @@
 
     @include('includes.frontend.style')
 
+    @stack('styles')
+
 </head>
 
 <body>
@@ -23,7 +25,7 @@
 
     @include('includes.frontend.scripts')
 
-    @yield('scripts')
+    @stack('scripts')
 
 </body>
 

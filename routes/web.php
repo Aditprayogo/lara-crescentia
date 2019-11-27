@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/detail', 'DetailController@index')->name('detail.index');
 
 Route::prefix('admin')
 	->namespace('Admin')
