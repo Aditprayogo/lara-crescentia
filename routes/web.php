@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home.index');
 
 Route::get('/detail', 'DetailController@index')->name('detail.index');
+
+Route::get('/detail/checkout', 'CheckoutController@index')->name('checkout.index');
 
 Route::prefix('admin')
 	->namespace('Admin')
@@ -25,6 +27,5 @@ Route::prefix('admin')
 			'uses' => 'DashboardController@index'
 		]);
 });
-
 
 

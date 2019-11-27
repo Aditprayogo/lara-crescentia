@@ -1,40 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.checkout')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Checkout</title>
-    <link rel="stylesheet" href="frontend/libraries/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="frontend/styles/main.css" />
-    <link href="https://fonts.googleapis.com/css?family=Assistant:200,400,700&&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet" />
+@section('title')
 
-    <link rel="stylesheet" href="frontend/libraries/xzoom/dist/xzoom.css" />
-    <link rel="stylesheet" href="frontend/libraries/gijgo/css/gijgo.min.css" />
-</head>
+    Halaman Checkout
+    
+@endsection
 
-<body>
-    <!-- Semantic elements -->
-    <!-- https://www.w3schools.com/html/html5_semantic_elements.asp -->
+@push('styles')
 
-    <!-- Bootstrap navbar example -->
-    <!-- https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp -->
-    <div class="container">
-        <nav class="row navbar navbar-expand-lg navbar-light bg-white">
-            <div class="navbar-nav ml-auto mr-auto mr-sm-auto mr-lg-0 mr-md-auto">
-                <a class="navbar-brand" href="index.html">
-                    <img src="frontend/images/logo.png" alt="" />
-                </a>
-            </div>
-            <ul class="navbar-nav mr-auto d-none d-lg-block">
-                <li>
-                    <span class="text-muted">| &nbsp; Beyond the explorer of the world</span>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <link rel="stylesheet" href="{{ url('frontend/libraries/xzoom/dist/xzoom.css') }}" />
+    <link rel="stylesheet" href="{{ url('frontend/libraries/gijgo/css/gijgo.min.css') }}" />
+    
+@endpush
+
+@section('content')
+
     <main>
         <section class="section-details-header"></section>
         <section class="section-details-content">
@@ -78,21 +58,21 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <img src="frontend/images/adit.png" alt="" height="60" />
+                                                <img src="{{ url('frontend/images/adit.png') }}" alt="" height="60" />
                                             </td>
                                             <td class="align-middle">Aditiya Prayogo</td>
                                             <td class="align-middle">CN</td>
-                                            <td class="align-middle">N/A</td>
+                                            <td class="align-middle">N/A</td>{{ url('') }}
                                             <td class="align-middle">Active</td>
                                             <td class="align-middle">
                                                 <a href="#">
-                                                    <img src="frontend/images/ic_remove.png" alt="" />
+                                                    <img src="{{ url('frontend/images/ic_remove.png') }}" alt="" />
                                                 </a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src="frontend/images/adit.png" alt="" height="60" />
+                                                <img src="{{ url('frontend/images/adit.png') }}" alt="" height="60" />
                                             </td>
                                             <td class="align-middle">Aditiya Prayogo</td>
                                             <td class="align-middle">SG</td>
@@ -100,7 +80,7 @@
                                             <td class="align-middle">Active</td>
                                             <td class="align-middle">
                                                 <a href="#">
-                                                    <img src="frontend/images/ic_remove.png" alt="" />
+                                                    <img src="{{ url('frontend/images/ic_remove.png') }}" alt="" />
                                                 </a>
                                             </td>
                                         </tr>
@@ -176,7 +156,7 @@
                             </p>
                             <div class="bank">
                                 <div class="bank-item pb-3">
-                                    <img src="frontend/images/ic_bank.png" alt="" class="bank-image" />
+                                    <img src="{{ url('frontend/images/ic_bank.png') }}" alt="" class="bank-image" />
                                     <div class="description">
                                         <h3>PT Nomads ID</h3>
                                         <p>
@@ -188,7 +168,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="bank-item">
-                                    <img src="frontend/images/ic_bank.png" alt="" class="bank-image" />
+                                    <img src="{{ url('frontend/images/ic_bank.png') }}" alt="" class="bank-image" />
                                     <div class="description">
                                         <h3>PT Nomads ID</h3>
                                         <p>
@@ -202,7 +182,7 @@
                             </div>
                         </div>
                         <div class="join-container">
-                            <a href="success.html" class="btn btn-block btn-join-now mt-3 py-2">I Have Made Payment</a>
+                            <a href="#" class="btn btn-block btn-join-now mt-3 py-2">I Have Made Payment</a>
                         </div>
                         <div class="text-center mt-3">
                             <a href="#" class="text-muted">Cancel Booking</a>
@@ -212,75 +192,14 @@
             </div>
         </section>
     </main>
+   
+@endsection
 
-    <footer class="section-footer mt-5 mb-4 border-top">
-        <div class="container pt-5 pb-5">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col-12 col-lg-3">
-                                    <h5>FEATURES</h5>
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <a href="#">Reviews</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Community</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Social Media Kit</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Affiliate</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-12 col-lg-3">
-                                    <h5>ACCOUNT</h5>
-                                    <ul class="list-unstyled">
-                                        <li><a href="#">Refund</a></li>
-                                        <li><a href="#">Security</a></li>
-                                        <li><a href="#">Rewards</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-12 col-lg-3">
-                                    <h5>COMPANY</h5>
-                                    <ul class="list-unstyled">
-                                        <li><a href="#">Career</a></li>
-                                        <li><a href="#">Help Center</a></li>
-                                        <li><a href="#">Media</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-12 col-lg-3">
-                                    <h5>Get Connected</h5>
-                                    <ul class="list-unstyled">
-                                        <li>Jakarta Selatan</li>
-                                        <li>Indonesia</li>
-                                        <li>0821 - 2222 - 8888</li>
-                                        <li>support@nomads.id</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row border-top justify-content-center align-items-center pt-4">
-                <div class="col-auto text-gray-500 font-weight-light">
-                    2019 Copyright Nomads • All rights reserved • Made in Jakarta
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="frontend/libraries/retina/retina.js"></script>
-    <script src="frontend/libraries/jquery/jquery-3.4.1.min.js"></script>
-    <script src="frontend/libraries/bootstrap/js/bootstrap.js"></script>
-    <script src="frontend/libraries/xzoom/dist/xzoom.min.js"></script>
-    <script src="frontend/libraries/gijgo/js/gijgo.min.js"></script>
+@push('scripts')
+
+    <script src="{{ url('frontend/libraries/xzoom/dist/xzoom.min.js') }}"></script>
+    <script src="{{ url('frontend/libraries/gijgo/js/gijgo.min.js') }}"></script>
+
     <script>
         $(document).ready(function () {
             $('.xzoom, .xzoom-gallery').xzoom({
@@ -293,11 +212,10 @@
             $('.datepicker').datepicker({
                 uiLibrary: 'bootstrap4',
                 icons: {
-                    rightIcon: '<img src="frontend/images/ic_doe.png" alt="" />'
+                    rightIcon: '<img src=" {{ url('frontend/images/ic_doe.png') }} " alt="" />'
                 }
             });
         });
     </script>
-</body>
-
-</html>
+    
+@endpush

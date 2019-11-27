@@ -1,6 +1,6 @@
 <div class="container">
         <nav class="row navbar navbar-expand-lg navbar-light bg-white">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('home.index') }}">
                 <img src="{{ url('frontend/images/logo.png') }}" alt="" />
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
