@@ -19,7 +19,28 @@
         <span>Dashboard</span></a>
     </li>
 
-    <!-- Divider -->
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+      <a class="nav-link" href="index.html">
+        <i class="fas fa-map-marked-alt"></i>
+        <span>Paket Travel</span></a>
+    </li>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+      <a class="nav-link" href="index.html">
+        <i class="fas fa-images"></i>
+        <span>Galery Travel</span></a>
+    </li>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+      <a class="nav-link" href="index.html">
+        <i class="fas fa-hand-holding-usd"></i>
+        <span>Transaksi</span></a>
+    </li>
+
+    {{-- <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Heading -->
@@ -99,7 +120,7 @@
       <a class="nav-link" href="tables.html">
         <i class="fas fa-fw fa-table"></i>
         <span>Tables</span></a>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

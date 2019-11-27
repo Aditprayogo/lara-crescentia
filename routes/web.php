@@ -16,11 +16,16 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('admin')->namespace('Admin')->group(function () {
+Route::prefix('admin')
+	->namespace('Admin')
+	->group(function () {
+		
 	// Controllers Within The "App\Http\Controllers\Admin" Namespace
-	Route::get('/', [
-		'as' => 'dashboard',
-		'uses' => 'DashboardController@index'
-	]);
+		Route::get('/', [
+			'as' => 'dashboard',
+			'uses' => 'DashboardController@index'
+		]);
 });
+
+Route::get('/home', 'HomeController@index')->name('home.index');
 
