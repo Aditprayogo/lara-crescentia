@@ -1,5 +1,11 @@
 @extends('layouts.success')
 
+@section('title')
+
+    Success Checkout
+    
+@endsection
+
 @section('content')
 
 <main>
@@ -14,7 +20,7 @@
 
                 Please Read it as well
             </p>
-            <a href="{{route('home.index')}}l" class="btn btn-home-page mt-3 px-5">
+            <a href="{{route('home.index')}}" class="btn btn-home-page mt-3 px-5">
                 Homepage
             </a>
         </div>

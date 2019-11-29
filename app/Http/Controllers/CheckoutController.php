@@ -11,4 +11,10 @@ class CheckoutController extends Controller
 		# code...
 		return view('pages.checkout-travel');
 	}
+
+	public function success()
+	{
+		# code...
+		return view('pages.success');
+	}
 }
