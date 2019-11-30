@@ -19,14 +19,12 @@ Route::get('/detail/checkout', 'CheckoutController@index')->name('checkout.index
 
 Route::get('/detail/checkout/success', 'CheckoutController@success')->name('success.checkout.index');
 
-Route::prefix('admin')
-	->namespace('Admin')
-	->group(function () {
+Route::prefix('admin')->namespace('Admin')->group(function () {
 		
-	// Controllers Within The "App\Http\Controllers\Admin" Namespace
 		Route::get('/', [
 			'as' => 'dashboard',
 			'uses' => 'DashboardController@index'
 		]);
+
 });
 
