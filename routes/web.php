@@ -19,7 +19,10 @@ Route::get('/detail/checkout', 'CheckoutController@index')->name('checkout.index
 
 Route::get('/detail/checkout/success', 'CheckoutController@success')->name('success.checkout.index');
 
-Route::prefix('admin')->namespace('Admin')->group(function () {
+Route::prefix('admin')
+	->namespace('Admin')
+	->middleware(['auth', 'admin'])
+	->group(function () {
 		
 		Route::get('/', [
 			'as' => 'dashboard',
@@ -28,3 +31,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
 });
 
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
