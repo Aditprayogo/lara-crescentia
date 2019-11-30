@@ -131,6 +131,20 @@
                                 @enderror
                             </div>
                         </div>
+                        
+                        <div class="form-group row">
+                            <label for="language" class="col-md-2 col-form-label text-md-center">{{ __('language') }}</label>
+
+                            <div class="col-md-8">
+                                <input id="language" type="text" class="form-control @error('language') is-invalid @enderror" name="language" value="{{ old('language') }}" required autocomplete="language" autofocus placeholder="">
+
+                                @error('language')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="about" class="col-md-2 col-form-label text-md-center">{{ __('about') }}</label>
@@ -142,7 +156,7 @@
                         </div>
 
                         <div class="text-center">
-                                <button type="submit" class="btn btn-sm btn-primary shadow-sm">Tambah</button>
+                            <button type="submit" class="btn btn-sm btn-primary shadow-sm btn-block">Tambah</button>
                         </div>
                         
 

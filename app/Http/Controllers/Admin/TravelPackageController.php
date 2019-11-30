@@ -48,6 +48,15 @@ class TravelPackageController extends Controller
 		$new_package->foods = $request->input('foods');
 		$new_package->language = $request->input('language');
 		$new_package->about = $request->input('about');
+		$new_package->price = $request->input('price');
+		$new_package->duration = $request->input('duration');
+		$new_package->type = $request->input('type');
+		$new_package->departure_date = $request->input('departure_date');
+		$new_package->slug = \Str::slug($request->input('title'), '-');
+
+		$new_package->save();
+
+		return redirect()->route('travel-package.index')->with('success', 'The Package has been created');
     }
 
     /**
