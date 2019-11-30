@@ -29,7 +29,7 @@
       <div id="content">
 
         @include('includes.admin.navbar')
-
+        @include('includes.messange')
         @yield('content')
 
       </div>

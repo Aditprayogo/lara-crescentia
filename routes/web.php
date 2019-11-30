@@ -29,6 +29,8 @@ Route::prefix('admin')
 			'uses' => 'DashboardController@index'
 		]);
 
+		Route::resource('travel-package', 'TravelPackageController');
+
 });
 
 
