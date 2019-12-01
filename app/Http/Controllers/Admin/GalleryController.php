@@ -45,7 +45,7 @@ class GalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GalleryRequest $request)
     {
 		$data = $request->all();
 		$data['image'] = $request->file('image')->store('assets/gallery', 'public');
@@ -91,7 +91,7 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GalleryRequest $request, $id)
     {
 		$gallery = Gallery::findOrFail($id);
 		
@@ -99,9 +99,9 @@ class GalleryController extends Controller
 
 		if ($request->file('image')) {
 			# code...
-			if ($gallery->image && file_exists(storage_path('app/public/assets/' . $gallery->image))) {
+			if ($gallery->image && file_exists(storage_path('app/public/assets/gallery/' . $gallery->image))) {
 				# code...
-				\Storage::delete('app/public/assets/' . $gallery->image);
+				\Storage::delete('app/public/assets/gallery/' . $gallery->image);
 			}
 
 			$data['image'] = $request->file('image')->store('assets/gallery', 'public');
