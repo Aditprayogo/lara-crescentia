@@ -13,6 +13,8 @@
 
   @include('includes.admin.style')
 
+  @stack('style')
+
 </head>
 
 <body id="page-top">
@@ -71,6 +73,8 @@
   </div>
 
   @include('includes.admin.scripts')
+
+  @stack('scripts')
 
 </body>
 

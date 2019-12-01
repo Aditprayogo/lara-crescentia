@@ -17,6 +17,12 @@ class TravelPackage extends Model
 
 	protected $hidden = [];
 
+	public function galleries()
+	{
+		# code...
+		return $this->hasMany('App\Gallery', 'travel_packages_id', 'id');
+	}
+
 	
 
 
