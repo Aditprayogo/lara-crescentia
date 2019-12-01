@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\TravelPackageRequest;
 use Illuminate\Http\Request;
 use App\TravelPackage;
 
@@ -39,7 +40,7 @@ class TravelPackageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TravelPackageRequest $request)
     {
 		$new_package = new TravelPackage();
 		$new_package->title = $request->input('title');
@@ -78,7 +79,9 @@ class TravelPackageController extends Controller
      */
     public function edit($id)
     {
-        //
+		$item = TravelPackage::findOrFail($id);
+
+		return view('pages.admin.travel-package.edit', ['item' => $item]);
     }
 
     /**
@@ -88,9 +91,17 @@ class TravelPackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TravelPackageRequest $request, $id)
     {
-        //
+		$travel = TravelPackage::findOrFail($id);
+
+		$data = $request->all();
+
+		$data['slug'] = \Str::slug($data['title'], "-");
+
+		$travel->update($data);
+
+		return redirect()->route('travel-package.index')->with('success', 'Data has been updated');
     }
 
     /**
