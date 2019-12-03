@@ -88,7 +88,12 @@ class TransactionController extends Controller
      */
     public function update(TransactionRequest $request, $id)
     {
-		
+
+		$data = $request->all();
+
+		Transaction::findOrFail($id)->update($data);
+
+		return redirect()->route('transaction.index')->with('success', 'Data has been edited');
     }
 
     /**
