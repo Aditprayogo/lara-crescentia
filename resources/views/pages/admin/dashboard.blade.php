@@ -97,7 +97,7 @@
     <div class="row">
 
       <!-- Area Chart -->
-      <div class="col-xl-8 col-lg-7">
+      <div class="col-xl-7 col-lg-6">
         <div class="card shadow mb-4">
           <!-- Card Header - Dropdown -->
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -125,7 +125,7 @@
       </div>
 
       <!-- Pie Chart -->
-      <div class="col-xl-4 col-lg-5">
+      <div class="col-xl-5 col-lg-6">
         <div class="card shadow mb-4">
           <!-- Card Header - Dropdown -->
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -147,17 +147,6 @@
           <div class="card-body">
             <div class="chart-pie pt-4 pb-2">
               <canvas id="myPieChart"></canvas>
-            </div>
-            <div class="mt-4 text-center small">
-              <span class="mr-2">
-                <i class="fas fa-circle text-primary"></i> Direct
-              </span>
-              <span class="mr-2">
-                <i class="fas fa-circle text-success"></i> Social
-              </span>
-              <span class="mr-2">
-                <i class="fas fa-circle text-info"></i> Referral
-              </span>
             </div>
           </div>
         </div>
@@ -287,3 +276,40 @@
   <!-- /.container-fluid -->
     
 @endsection
+
+@push('scripts')
+<script>
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["Paket Travel", "Transaksi", "Sukses", 'Pending'],
+    datasets: [{
+      data: [{{ $paketTravel }}, {{ $transaksi }}, {{ $sukses }}, {{ $pending }}],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+</script>
+
+    
+@endpush

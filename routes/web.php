@@ -11,13 +11,17 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home.index');
+Route::get('/', 'HomeController@index')
+	->name('home.index');
 
-Route::get('/detail', 'DetailController@index')->name('detail.index');
+Route::get('/detail/{slug}', 'DetailController@index')
+	->name('detail.index');
 
-Route::get('/detail/checkout', 'CheckoutController@index')->name('checkout.index');
+Route::post('/checkout/{id', 'CheckoutController@process')
+	->name('checkout_process')
+	->middleware(['auth', 'verified']);
 
-Route::get('/detail/checkout/success', 'CheckoutController@success')->name('success.checkout.index');
+
 
 Route::prefix('admin')
 	->namespace('Admin')
@@ -39,4 +43,4 @@ Route::prefix('admin')
 
 Auth::routes(['verify' => true]);
 
-// Route::get('/home', 'HomeController@index')->name('home');
+
