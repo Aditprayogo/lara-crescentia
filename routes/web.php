@@ -17,10 +17,29 @@ Route::get('/', 'HomeController@index')
 Route::get('/detail/{slug}', 'DetailController@index')
 	->name('detail.index');
 
-Route::post('/checkout/{id', 'CheckoutController@process')
-	->name('checkout_process')
+Route::post('/checkout/{id}', 'CheckoutController@process')
+	->name('checkout.process')
 	->middleware(['auth', 'verified']);
 
+
+Route::get('/checkout/{id}', 'CheckoutController@index')
+	->name('checkout.index')
+	->middleware(['auth', 'verified']);
+
+
+Route::post('/checkout/create/{id}', 'CheckoutController@create')
+	->name('checkout.create')
+	->middleware(['auth', 'verified']);
+
+
+Route::get('/checkout/remove/{detail_id}', 'CheckoutController@remove')
+	->name('checkout.remove')
+	->middleware(['auth', 'verified']);
+
+
+Route::get('/checkout/confirm/{id}', 'CheckoutController@success')
+	->name('checkout.success')
+	->middleware(['auth', 'verified']);
 
 
 Route::prefix('admin')
