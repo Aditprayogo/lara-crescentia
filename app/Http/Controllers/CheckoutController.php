@@ -95,7 +95,7 @@ class CheckoutController extends Controller
 		# code...
 		$item = TransactionDetail::findOrFail($detail_id);
 
-		$transaction = Transaction::with(['details', 'travel_package'])->findOrFail($item->transaction_id);
+		$transaction = Transaction::with(['details', 'travel_package'])->findOrFail($item->transactions_id);
 
 		if ($item->is_visa) {
 			# code...
@@ -109,7 +109,7 @@ class CheckoutController extends Controller
 
 		$item->delete();
 
-		return redirect()->route('checkout.index', ['id' => $item->transaction_id])->with('success', 'Data has been deleted');
+		return redirect()->route('checkout.index', ['id' => $item->transactions_id])->with('success', 'Data has been deleted');
 
 
 	}
