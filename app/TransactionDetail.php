@@ -13,7 +13,7 @@ class TransactionDetail extends Model
     protected $fillable = [
 		'transactions_id',
 		'username',
-		'nationallity',
+		'nationality',
 		'is_visa',
 		'doe_passport'
 	];

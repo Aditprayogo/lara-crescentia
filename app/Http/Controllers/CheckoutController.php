@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\PackageTravel;
-use App\Trasaction;
-use App\TrasactionDetail;
+use App\TravelPackage;
+use App\Transaction;
+use App\TransactionDetail;
 
 use Carbon\Carbon;
 
@@ -48,15 +48,15 @@ class CheckoutController extends Controller
 			'transaction_status' => 'IN_CART',
 		]);
 
-		TrasactionDetail::create([
-			'transaction_id' => $transaction->id,
+		TransactionDetail::create([
+			'transactions_id' => $transaction->id,
 			'username' => Auth::user()->username,
 			'nationality' => 'ID',
 			'is_visa' => false,
 			'doe_passport' => Carbon::now()->addYears(5),
 		]);
 
-		return view('pages.success')->route('checkout.index', $transaction->id)->with('success', 'Date has been created');
+		return redirect()->route('checkout.index', ['id' => $transaction->id])->with('success', 'Date has been created');
 	}
 
 	public function create(Request $request, $id)
@@ -73,7 +73,8 @@ class CheckoutController extends Controller
 
 		TransactionDetail::create($data); 
 
-		$transaction = Transaction::with(['details', 'travel_package', 'user'])->findOrFail($id);
+		$transaction = Transaction::with(['details', 'travel_package', 'user'])
+							->findOrFail($id);
 
 		if ($request->is_visa) {
 			# code...
@@ -92,7 +93,7 @@ class CheckoutController extends Controller
 	public function remove(Request $request,$detail_id)
 	{
 		# code...
-		$item = TrasactionDetail::findOrFail($detail_id);
+		$item = TransactionDetail::findOrFail($detail_id);
 
 		$transaction = Transaction::with(['details', 'travel_package'])->findOrFail($item->transaction_id);
 
@@ -108,7 +109,7 @@ class CheckoutController extends Controller
 
 		$item->delete();
 
-		return redirect()->route('checkout.index', $item->transaction_id)->with('success', 'Data has been deleted');
+		return redirect()->route('checkout.index', ['id' => $item->transaction_id])->with('success', 'Data has been deleted');
 
 
 	}
