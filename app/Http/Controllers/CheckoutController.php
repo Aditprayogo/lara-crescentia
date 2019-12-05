@@ -16,7 +16,8 @@ class CheckoutController extends Controller
     public function index($id)
 	{
 		# code...
-		$item = Transaction::with(['details', 'travel_package', 'user'])->findOrFail($id);
+		$item = Transaction::with(['details', 'travel_package', 'user'])
+			->findOrFail($id);
 
 		return view('pages.checkout-travel', [
 			'item' => $item
@@ -93,11 +94,11 @@ class CheckoutController extends Controller
 	public function remove(Request $request,$detail_id)
 	{
 		# code...
-		$item = TransactionDetail::findOrFail($detail_id);
+		$detail = TransactionDetail::findOrFail($detail_id);
 
-		$transaction = Transaction::with(['details', 'travel_package'])->findOrFail($item->transactions_id);
+		$transaction = Transaction::with(['details', 'travel_package'])->findOrFail($detail->transactions_id);
 
-		if ($item->is_visa) {
+		if ($detail->is_visa) {
 			# code...
 			$transaction->transaction_total -= 190;
 			$transaction->additional_visa -= 190;
@@ -107,9 +108,9 @@ class CheckoutController extends Controller
 
 		$transaction->save();
 
-		$item->delete();
+		$detail->delete();
 
-		return redirect()->route('checkout.index', ['id' => $item->transactions_id])->with('success', 'Data has been deleted');
+		return redirect()->route('checkout.index', ['id' => $detail->transactions_id])->with('success', 'Data has been deleted');
 
 
 	}

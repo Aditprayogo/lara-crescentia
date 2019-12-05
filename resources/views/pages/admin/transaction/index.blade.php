@@ -63,6 +63,7 @@
         </div>
     </div>
 
+    {{ $items->links() }}
    
 
   </div>

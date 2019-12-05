@@ -21,7 +21,7 @@ class TransactionController extends Controller
 			'details',
 			'travel_package',
 			'user'
-		])->get();
+		])->paginate(10);
 
         return view('pages.admin.transaction.index', [
 			'items' => $items,
