@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TravelPackageRequest;
 use Illuminate\Http\Request;
+
 use App\TravelPackage;
 
 class TravelPackageController extends Controller
@@ -43,7 +44,8 @@ class TravelPackageController extends Controller
     public function store(TravelPackageRequest $request)
     {
 		$new_package = new TravelPackage();
-		$new_package->title = $request->input('title');
+		
+		$new_package->title = 	$request->input('title');
 		$new_package->location = $request->input('location');
 		$new_package->featured_event = $request->input('featured_event');
 		$new_package->foods = $request->input('foods');
@@ -81,7 +83,9 @@ class TravelPackageController extends Controller
     {
 		$item = TravelPackage::findOrFail($id);
 
-		return view('pages.admin.travel-package.edit', ['item' => $item]);
+		return view('pages.admin.travel-package.edit', [
+			'item' => $item
+		]);
     }
 
     /**

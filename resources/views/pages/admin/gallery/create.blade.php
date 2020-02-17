@@ -18,6 +18,7 @@
         <div class="col-lg">           
             <div class="card shadow">
                 <div class="card-body">
+
                     {{-- form --}}
                     <form action="{{ route('gallery.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -45,8 +46,6 @@
                             </div>
                         </div>
 
-                       
-
                         <div class="form-group">
                             <label for="title" class="col-md-2 col-form-label ">{{ __('Paket Travel') }}</label>
 
@@ -65,9 +64,6 @@
                         <div class="text-center">
                             <button type="submit" class="btn btn-sm btn-primary shadow-sm btn-block">Tambah</button>
                         </div>
-                        
-
-
                     </form>
                     {{-- end form --}}
                 </div>

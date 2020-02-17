@@ -14,7 +14,7 @@ class CreateTravelPackagesTable extends Migration
     public function up()
     {
         Schema::create('travel_packages', function (Blueprint $table) {
-			$table->bigIncrements('id');
+			$table->increments('id');
 			$table->string('title');
 			$table->string('slug');
 			$table->string('location');

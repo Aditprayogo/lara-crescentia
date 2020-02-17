@@ -14,11 +14,16 @@ class CreateGalleriesTable extends Migration
     public function up()
     {
         Schema::create('galleries', function (Blueprint $table) {
-			$table->bigIncrements('id');
-			$table->bigInteger('travel_packages_id');
+			$table->increments('id');
+			$table->integer('travel_packages_id')->unsigned()->index();
 			$table->text('image');
 			$table->softDeletes();
-            $table->timestamps();
+			$table->timestamps();
+			
+			$table->foreign('travel_packages_id')
+				->references('id')
+				->on('travel_packages')
+				->onDelete('cascade');
         });
     }
 

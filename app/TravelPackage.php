@@ -23,7 +23,4 @@ class TravelPackage extends Model
 		return $this->hasMany('App\Gallery', 'travel_packages_id', 'id');
 	}
 
-	
-
-
 }
